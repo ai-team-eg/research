@@ -1,220 +1,138 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=620">
-    <title>مشروع الذكاء الاصطناعي - الصف الثاني بكالوريا</title>
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=650">
+    <title>منصة أبحاث الذكاء الاصطناعي التوليدي | الصف الثاني بكالوريا</title>
+    <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: #f4f7fb;
-            color: #1e293b;
-            line-height: 1.7;
-        }
-        /* شريط التنقل يعرض الأزرار الستة في صف واحد بدون تقليب */
-        nav {
-            background: #ffffff;
-            border-bottom: 1px solid #e2e8f0;
-            padding: 12px 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 6px;
-        }
-        nav a {
-            text-decoration: none;
-            color: #475569;
-            font-weight: 700;
-            font-size: 13px;
-            padding: 6px 11px;
-            border-radius: 8px;
-            white-space: nowrap;
-        }
-        nav a.active, nav a:hover {
-            background: #0f2942;
-            color: #ffffff;
-        }
-        /* الهيدر الرئيسي */
-        header {
-            background: linear-gradient(135deg, #0f2942, #1e6091);
-            color: #ffffff;
-            text-align: center;
-            padding: 35px 20px;
-            border-bottom: 4px solid #d4af37;
-        }
-        header h1 {
-            font-size: 24px;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-        header p {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-        /* المحتوى والبطاقات */
-        .container {
-            max-width: 960px;
-            margin: 22px auto;
-            padding: 0 18px;
-        }
-        .card {
-            background: #ffffff;
-            border-radius: 14px;
-            padding: 22px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            border-top: 4px solid #1e6091;
-        }
-        h2 {
-            color: #0f2942;
-            font-size: 19px;
-            margin-bottom: 14px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #f1f5f9;
-        }
-        .q-box {
-            background: #f0f9ff;
-            border-right: 4px solid #0284c7;
-            padding: 13px 16px;
-            border-radius: 8px;
-            margin-bottom: 14px;
-            font-size: 14px;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-            gap: 12px;
-            margin-top: 14px;
-        }
-        .box {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 16px 12px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .box h3 {
-            font-size: 15px;
-            color: #0f2942;
-            margin-bottom: 6px;
-        }
-        .box p {
-            font-size: 13px;
-            color: #64748b;
-            margin-bottom: 14px;
-        }
-        .btn {
-            display: inline-block;
-            background: #1e6091;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 700;
-            padding: 7px 14px;
-            border-radius: 8px;
-        }
-        ul {
-            padding-right: 20px;
-            font-size: 14px;
-            color: #475569;
-        }
-        li { margin-bottom: 6px; }
-        footer {
-            background: #0f2942;
-            color: #ffffff;
-            text-align: center;
-            padding: 15px;
-            font-size: 13px;
-            margin-top: 25px;
-        }
+        :root { --bg: #f8fafc; --surface: #ffffff; --alt: #f1f5f9; --text: #0f172a; --muted: #475569; --navy: #0f2942; --blue: #2563eb; --purple: #7c3aed; --border: #e2e8f0; }
+        [data-theme="dark"] { --bg: #090d16; --surface: #111827; --alt: #1e293b; --text: #f8fafc; --muted: #94a3b8; --navy: #38bdf8; --border: #1e293b; }
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+        body { font-family: 'Cairo', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; transition: 0.3s; }
+        nav { position: sticky; top: 0; z-index: 999; background: var(--surface); border-bottom: 1px solid var(--border); padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .brand { font-weight: 900; font-size: 1.1rem; color: var(--navy); text-decoration: none; }
+        .brand span { color: var(--purple); }
+        .nav-links { display: flex; gap: 6px; }
+        .nav-links a { text-decoration: none; color: var(--muted); font-weight: 700; font-size: 0.85rem; padding: 6px 12px; border-radius: 8px; transition: 0.2s; }
+        .nav-links a:hover, .nav-links a.active { background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; }
+        .theme-btn { background: var(--alt); border: 1px solid var(--border); color: var(--text); padding: 6px 12px; border-radius: 8px; cursor: pointer; font-family: inherit; font-weight: 700; font-size: 0.8rem; }
+        .hero { background: linear-gradient(135deg, #0f2942, #1d4ed8, #7c3aed); color: #fff; padding: 55px 25px; text-align: center; }
+        .badge { display: inline-block; background: rgba(255,255,255,0.15); padding: 5px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 15px; }
+        .hero h1 { font-size: 2rem; font-weight: 900; margin-bottom: 12px; }
+        .hero p { max-width: 700px; margin: 0 auto 25px; color: #e2e8f0; font-size: 1rem; }
+        .hero-btns { display: flex; justify-content: center; gap: 12px; }
+        .btn-w { background: #fff; color: #0f2942; padding: 10px 22px; border-radius: 10px; text-decoration: none; font-weight: 800; font-size: 0.9rem; }
+        .btn-t { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 10px 22px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 0.9rem; }
+        .container { max-width: 1050px; margin: 0 auto; padding: 40px 20px; }
+        .sec-title { text-align: center; margin-bottom: 30px; }
+        .sec-title h2 { font-size: 1.6rem; color: var(--navy); font-weight: 800; }
+        .sec-title p { color: var(--muted); font-size: 0.95rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+        .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 22px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); transition: 0.3s; }
+        .card:hover { transform: translateY(-4px); border-color: var(--blue); }
+        .card h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--text); }
+        .card p { font-size: 0.9rem; color: var(--muted); }
+        .search-box { width: 100%; max-width: 550px; display: block; margin: 0 auto 25px; padding: 12px 18px; border-radius: 12px; border: 2px solid var(--border); background: var(--surface); color: var(--text); font-family: inherit; font-size: 0.95rem; outline: none; }
+        .search-box:focus { border-color: var(--purple); }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 18px; }
+        .r-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 15px rgba(0,0,0,0.04); transition: 0.3s; }
+        .r-card:hover { transform: translateY(-5px); border-color: var(--purple); }
+        .r-tag { display: inline-block; background: rgba(37,99,235,0.1); color: var(--blue); font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 12px; margin-bottom: 10px; }
+        .r-topic { color: var(--purple); font-weight: 700; font-size: 0.95rem; margin: 6px 0 10px; }
+        .r-btn { display: block; text-align: center; background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; text-decoration: none; font-weight: 700; padding: 9px; border-radius: 10px; margin-top: 15px; font-size: 0.9rem; }
+        .ref-box { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 25px; margin-top: 20px; }
+        .highlight { background: rgba(124,58,237,0.08); border-right: 4px solid var(--purple); padding: 14px 18px; border-radius: 10px; margin-bottom: 18px; font-size: 0.95rem; }
+        .ref-list { list-style: none; }
+        .ref-list li { background: var(--alt); padding: 10px 15px; border-radius: 10px; margin-bottom: 8px; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; }
+        .ref-list a { color: var(--blue); font-weight: 700; text-decoration: none; }
+        #topBtn { position: fixed; bottom: 20px; left: 20px; width: 42px; height: 42px; border-radius: 50%; background: var(--purple); color: #fff; border: none; font-size: 1.1rem; cursor: pointer; display: none; z-index: 999; }
+        footer { background: #0f2942; color: #e2e8f0; text-align: center; padding: 25px 15px; font-size: 0.9rem; margin-top: 30px; }
     </style>
 </head>
 <body>
 
 <nav>
-    <a href="index.html" class="active">الرئيسية</a>
-    <a href="student1.html">الطالب 1</a>
-    <a href="student2.html">الطالب 2</a>
-    <a href="student3.html">الطالب 3</a>
-    <a href="student4.html">الطالب 4</a>
-    <a href="student5.html">الطالب 5</a>
+    <a href="index.html" class="brand">منصة أبحاث <span>AI التعليمي</span></a>
+    <div class="nav-links">
+        <a href="index.html" class="active">الرئيسية</a>
+        <a href="student1.html">الطالب 1</a>
+        <a href="student2.html">الطالب 2</a>
+        <a href="student3.html">الطالب 3</a>
+        <a href="student4.html">الطالب 4</a>
+        <a href="student5.html">الطالب 5</a>
+    </div>
+    <button class="theme-btn" id="themeBtn">🌙 ليلي</button>
 </nav>
 
-<header>
+<header class="hero">
+    <div class="badge">مشروع البرمجة والذكاء الاصطناعي • الصف الثاني الثانوي (بكالوريا)</div>
     <h1>تأثير الذكاء الاصطناعي التوليدي على التعليم والمجتمع</h1>
-    <p>مشروع مادة البرمجة والذكاء الاصطناعي - الصف الثاني الثانوي (نظام البكالوريا)</p>
+    <p>منصة بحثية طلابية تستعرض 5 أبحاث مستقلة مدعومة بتقارير دولية موثقة حول أدوات الذكاء الاصطناعي، مخاطره، أمن البيانات، والأخلاقيات الرقمية.</p>
+    <div class="hero-btns">
+        <a href="#team" class="btn-w">استعراض الأبحاث</a>
+        <a href="#goals" class="btn-t">أهداف المشروع</a>
+    </div>
 </header>
 
-<div class="container">
-    <div class="card">
-        <h2>مقدمة المشروع والسؤال الرئيسي</h2>
-        <div class="q-box">
-            <strong>السؤال الرئيسي:</strong> كيف يغير الذكاء الاصطناعي التوليدي مستقبل التعليم، وما هي ضوابط استخدامه بأمان؟
-        </div>
-        <p style="font-size: 14px; color: #475569;">يستعرض هذا الموقع 5 أبحاث مستقلة لفريق العمل، مدعومة بإحصائيات وتقارير دولية موثقة حول استخدامات الذكاء الاصطناعي، مخاطره، أمن البيانات، والأخلاقيات الرقمية.</p>
+<section class="container" id="goals">
+    <div class="sec-title">
+        <h2>السؤال الرئيسي وأهداف المشروع</h2>
+        <p>الإطار البحثي الموحد للدراسات الخمسة</p>
     </div>
+    <div class="grid-3">
+        <div class="card">
+            <h3>❓ السؤال الرئيسي</h3>
+            <p>كيف يغير الذكاء الاصطناعي التوليدي مستقبل التعليم، وما هي ضوابط استخدامه بأمان؟</p>
+        </div>
+        <div class="card">
+            <h3>🎯 هدف المنصة</h3>
+            <p>تحقيق التوازن بين الاستفادة من أدوات الذكاء الاصطناعي في الفهم وتجنب مخاطر الاعتماد الكلي وانتهاك الخصوصية.</p>
+        </div>
+        <div class="card">
+            <h3>📚 المراجع المعتمدة</h3>
+            <p>الاعتماد على المنهج الدراسي المصري وتقرير منظمة اليونسكو (UNESCO) حول الذكاء الاصطناعي في التعليم.</p>
+        </div>
+    </div>
+</section>
 
-    <div class="card">
+<section class="container" id="team" style="padding-top: 10px;">
+    <div class="sec-title">
         <h2>فريق العمل (5 أبحاث مستقلة)</h2>
-        <div class="grid">
-            <div class="box">
-                <div>
-                    <h3>محمد علي خليل</h3>
-                    <p>أدوات الذكاء الاصطناعي في التعليم</p>
-                </div>
-                <a href="student1.html" class="btn">عرض البحث</a>
-            </div>
-            <div class="box">
-                <div>
-                    <h3>مازن عبد الراضي عبد الرحيم</h3>
-                    <p>مخاطر الاعتماد الكلي</p>
-                </div>
-                <a href="student2.html" class="btn">عرض البحث</a>
-            </div>
-            <div class="box">
-                <div>
-                    <h3>احمد زين العابدين احمد</h3>
-                    <p>الأمن السيبراني والخصوصية</p>
-                </div>
-                <a href="student3.html" class="btn">عرض البحث</a>
-            </div>
-            <div class="box">
-                <div>
-                    <h3>صديقك 3</h3>
-                    <p>الأخلاقيات وحقوق الملكية</p>
-                </div>
-                <a href="student4.html" class="btn">عرض البحث</a>
-            </div>
-            <div class="box">
-                <div>
-                    <h3>صديقك 4</h3>
-                    <p>مستقبل الوظائف والمهارات</p>
-                </div>
-                <a href="student5.html" class="btn">عرض البحث</a>
-            </div>
-        </div>
+        <p>ابحث باسم الطالب أو موضوع البحث للوصول السريع</p>
     </div>
-
-    <div class="card">
-        <h2>التحليل النهائي والمراجع الموثقة</h2>
-        <div class="q-box">
-            <strong>الخلاصة:</strong> تشير التقارير التعليمية الحديثة إلى أن دمج الذكاء الاصطناعي كأداة مساعدة للفهم يرفع كفاءة التعلم، بشرط الالتزام بالتحقق من المعلومات وحماية البيانات الشخصية.
+    <input type="text" id="searchInput" class="search-box" placeholder="ابحث عن طالب أو موضوع (مثال: محمد علي، الأمن السيبراني)...">
+    <div class="team-grid">
+        <div class="r-card" data-key="محمد علي خليل أدوات الذكاء الاصطناعي في التعليم">
+            <div>
+                <span class="r-tag">البحث 01</span>
+                <h3>محمد علي خليل</h3>
+                <div class="r-topic">أدوات الذكاء الاصطناعي في التعليم</div>
+                <p style="font-size:0.88rem; color:var(--muted);">توظيف تطبيقات الذكاء الاصطناعي التوليدي كمساعد تعليمي لتبسيط المفاهيم ورفع كفاءة التعلم.</p>
+            </div>
+            <a href="student1.html" class="r-btn">عرض البحث ←</a>
         </div>
-        <ul>
-            <li>كتاب البرمجة والذكاء الاصطناعي - الصف الثاني الثانوي (وزارة التربية والتعليم المصرية).</li>
-            <li>تقرير منظمة اليونسكو (UNESCO) حول الذكاء الاصطناعي التوليدي في التعليم والبحث.</li>
-        </ul>
-    </div>
-</div>
-
-<footer>فريق عمل الصف الثاني بكالوريا - العام الدراسي 2026 / 2027</footer>
-
-</body>
-</html>
+        <div class="r-card" data-key="مازن عبد الراضي عبد الرحيم مخاطر الاعتماد الكلي">
+            <div>
+                <span class="r-tag">البحث 02</span>
+                <h3>مازن عبد الراضي عبد الرحيم</h3>
+                <div class="r-topic">مخاطر الاعتماد الكلي</div>
+                <p style="font-size:0.88rem; color:var(--muted);">تحليل الآثار السلبية للاعتماد المفرط على الذكاء الاصطناعي وضعف مهارات التفكير النقدي.</p>
+            </div>
+            <a href="student2.html" class="r-btn">عرض البحث ←</a>
+        </div>
+        <div class="r-card" data-key="احمد زين العابدين احمد الأمن السيبراني والخصوصية">
+            <div>
+                <span class="r-tag">البحث 03</span>
+                <h3>احمد زين العابدين احمد</h3>
+                <div class="r-topic">الأمن السيبراني والخصوصية</div>
+                <p style="font-size:0.88rem; color:var(--muted);">ضوابط حماية البيانات الشخصية والأمن الرقمي عند التعامل مع نماذج الذكاء الاصطناعي.</p>
+            </div>
+            <a href="student3.html" class="r-btn">عرض البحث ←</a>
+        </div>
+        <div class="r-card" data-key="صديقك 3 الأخلاقيات وحقوق الملكية">
+            <div>
+                <span class="r-tag">البحث 04</span>
+                <h3>صديقك 3</h3>
+                <div class="r-topic">الأخلاقيات وحقوق الملكية</div>
+                <p style="font-size:0.88rem; color:var(--muted);">المعايير الأخلاقية للاستخدام الأكاديمي وحماية حقوق الملكية الفكرية للمحتوى الرقمي.</p>
