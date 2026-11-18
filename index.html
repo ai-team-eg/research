@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=620">
     <title>مشروع الذكاء الاصطناعي - الصف الثاني بكالوريا</title>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
@@ -15,24 +15,24 @@
             color: #1e293b;
             line-height: 1.7;
         }
-        /* شريط تنقل بسيط وثابت في صف واحد */
+        /* شريط التنقل يعرض الأزرار الستة في صف واحد بدون تقليب */
         nav {
             background: #ffffff;
             border-bottom: 1px solid #e2e8f0;
-            padding: 10px;
-            text-align: center;
-            overflow-x: auto;
-            white-space: nowrap;
+            padding: 12px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
         }
         nav a {
-            display: inline-block;
             text-decoration: none;
             color: #475569;
             font-weight: 700;
             font-size: 13px;
-            padding: 6px 12px;
-            margin: 0 2px;
+            padding: 6px 11px;
             border-radius: 8px;
+            white-space: nowrap;
         }
         nav a.active, nav a:hover {
             background: #0f2942;
@@ -43,11 +43,11 @@
             background: linear-gradient(135deg, #0f2942, #1e6091);
             color: #ffffff;
             text-align: center;
-            padding: 35px 15px;
+            padding: 35px 20px;
             border-bottom: 4px solid #d4af37;
         }
         header h1 {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 800;
             margin-bottom: 8px;
         }
@@ -58,54 +58,57 @@
         /* المحتوى والبطاقات */
         .container {
             max-width: 960px;
-            margin: 20px auto;
-            padding: 0 15px;
+            margin: 22px auto;
+            padding: 0 18px;
         }
         .card {
             background: #ffffff;
             border-radius: 14px;
-            padding: 20px;
-            margin-bottom: 18px;
+            padding: 22px;
+            margin-bottom: 20px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             border-top: 4px solid #1e6091;
         }
         h2 {
             color: #0f2942;
-            font-size: 18px;
-            margin-bottom: 12px;
+            font-size: 19px;
+            margin-bottom: 14px;
             padding-bottom: 8px;
             border-bottom: 1px solid #f1f5f9;
         }
         .q-box {
             background: #f0f9ff;
             border-right: 4px solid #0284c7;
-            padding: 12px 15px;
+            padding: 13px 16px;
             border-radius: 8px;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             font-size: 14px;
         }
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
             gap: 12px;
-            margin-top: 12px;
+            margin-top: 14px;
         }
         .box {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
             border-radius: 12px;
-            padding: 16px;
+            padding: 16px 12px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .box h3 {
-            font-size: 16px;
+            font-size: 15px;
             color: #0f2942;
             margin-bottom: 6px;
         }
         .box p {
             font-size: 13px;
             color: #64748b;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
         .btn {
             display: inline-block;
@@ -114,7 +117,7 @@
             text-decoration: none;
             font-size: 13px;
             font-weight: 700;
-            padding: 7px 16px;
+            padding: 7px 14px;
             border-radius: 8px;
         }
         ul {
@@ -162,28 +165,38 @@
         <h2>فريق العمل (5 أبحاث مستقلة)</h2>
         <div class="grid">
             <div class="box">
-                <h3>محمد علي خليل</h3>
-                <p>أدوات الذكاء الاصطناعي في التعليم</p>
+                <div>
+                    <h3>محمد علي خليل</h3>
+                    <p>أدوات الذكاء الاصطناعي في التعليم</p>
+                </div>
                 <a href="student1.html" class="btn">عرض البحث</a>
             </div>
             <div class="box">
-                <h3>مازن عبد الراضي عبد الرحيم</h3>
-                <p>مخاطر الاعتماد الكلي</p>
+                <div>
+                    <h3>مازن عبد الراضي عبد الرحيم</h3>
+                    <p>مخاطر الاعتماد الكلي</p>
+                </div>
                 <a href="student2.html" class="btn">عرض البحث</a>
             </div>
             <div class="box">
-                <h3>احمد زين العابدين احمد</h3>
-                <p>الأمن السيبراني والخصوصية</p>
+                <div>
+                    <h3>احمد زين العابدين احمد</h3>
+                    <p>الأمن السيبراني والخصوصية</p>
+                </div>
                 <a href="student3.html" class="btn">عرض البحث</a>
             </div>
             <div class="box">
-                <h3>صديقك 3</h3>
-                <p>الأخلاقيات وحقوق الملكية</p>
+                <div>
+                    <h3>صديقك 3</h3>
+                    <p>الأخلاقيات وحقوق الملكية</p>
+                </div>
                 <a href="student4.html" class="btn">عرض البحث</a>
             </div>
             <div class="box">
-                <h3>صديقك 4</h3>
-                <p>مستقبل الوظائف والمهارات</p>
+                <div>
+                    <h3>صديقك 4</h3>
+                    <p>مستقبل الوظائف والمهارات</p>
+                </div>
                 <a href="student5.html" class="btn">عرض البحث</a>
             </div>
         </div>
