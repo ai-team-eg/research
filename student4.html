@@ -1,144 +1,61 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=650">
-    <title>بحث الطالب 4 - الأخلاقيات وحقوق الملكية | عبد الرحمن احمد شحاته</title>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <style>
-        :root { --bg: #f8fafc; --surface: #ffffff; --alt: #f1f5f9; --text: #0f172a; --muted: #475569; --navy: #0f2942; --blue: #2563eb; --purple: #7c3aed; --border: #e2e8f0; }
-        [data-theme="dark"] { --bg: #090d16; --surface: #111827; --alt: #1e293b; --text: #f8fafc; --muted: #94a3b8; --navy: #38bdf8; --border: #1e293b; }
-        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-        body { font-family: 'Cairo', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; transition: 0.3s; }
-        nav { position: sticky; top: 0; z-index: 999; background: var(--surface); border-bottom: 1px solid var(--border); padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .brand { font-weight: 900; font-size: 1.1rem; color: var(--navy); text-decoration: none; }
-        .brand span { color: var(--purple); }
-        .nav-links { display: flex; gap: 6px; }
-        .nav-links a { text-decoration: none; color: var(--muted); font-weight: 700; font-size: 0.85rem; padding: 6px 12px; border-radius: 8px; transition: 0.2s; }
-        .nav-links a:hover, .nav-links a.active { background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; }
-        .theme-btn { background: var(--alt); border: 1px solid var(--border); color: var(--text); padding: 6px 12px; border-radius: 8px; cursor: pointer; font-family: inherit; font-weight: 700; font-size: 0.8rem; }
-        .page-hero { background: linear-gradient(135deg, #0f2942, #1d4ed8, #7c3aed); color: #fff; padding: 45px 25px; text-align: center; }
-        .badge { display: inline-block; background: rgba(255,255,255,0.18); padding: 5px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 12px; }
-        .page-hero h1 { font-size: 1.9rem; font-weight: 900; margin-bottom: 8px; }
-        .page-hero p { color: #e2e8f0; font-size: 1rem; font-weight: 600; }
-        .container { max-width: 950px; margin: 0 auto; padding: 30px 20px; }
-        .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 18px 22px; margin-bottom: 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
-        .toc span { font-weight: 800; color: var(--navy); font-size: 0.95rem; margin-left: 8px; }
-        .toc a { text-decoration: none; background: var(--alt); color: var(--text); padding: 5px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; transition: 0.2s; }
-        .toc a:hover { background: var(--purple); color: #fff; }
-        .card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 28px; margin-bottom: 22px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); }
-        .card h2 { font-size: 1.35rem; color: var(--navy); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid var(--alt); display: flex; align-items: center; gap: 8px; }
-        .q-highlight { background: rgba(124,58,237,0.08); border-right: 4px solid var(--purple); padding: 16px 20px; border-radius: 12px; font-size: 1.05rem; font-weight: 700; color: var(--text); }
-        .card p { color: var(--muted); font-size: 1rem; margin-bottom: 12px; }
-        .examples-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 15px; }
-        .ex-box { background: var(--alt); border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
-        .ex-box h4 { color: var(--blue); font-size: 1rem; margin-bottom: 6px; }
-        .ex-box p { font-size: 0.88rem; margin: 0; }
-        .ref-list { list-style: none; margin-top: 10px; }
-        .ref-list li { background: var(--alt); padding: 12px 16px; border-radius: 10px; margin-bottom: 8px; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; }
-        .ref-list a { color: var(--blue); font-weight: 700; text-decoration: none; }
-        .nav-bottom { display: flex; justify-content: space-between; margin-top: 25px; }
-        .btn-nav { background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; text-decoration: none; padding: 10px 22px; border-radius: 12px; font-weight: 700; font-size: 0.9rem; }
-        #topBtn { position: fixed; bottom: 20px; left: 20px; width: 42px; height: 42px; border-radius: 50%; background: var(--purple); color: #fff; border: none; font-size: 1.1rem; cursor: pointer; display: none; z-index: 999; }
-        footer { background: #0f2942; color: #e2e8f0; text-align: center; padding: 25px 15px; font-size: 0.9rem; margin-top: 30px; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بحث الطالب 4 - التحيز والخصوصية والشفافية والمسؤولية | عبد الرحمن احمد شحاته</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #f8fafc; --surface: #ffffff; --alt: #f1f5f9; --text: #0f172a; --muted: #475569; --navy: #0f2942; --blue: #2563eb; --purple: #7c3aed; --border: #e2e8f0; }
+    [data-theme="dark"] { --bg: #090d16; --surface: #111827; --alt: #1e293b; --text: #f8fafc; --muted: #94a3b8; --navy: #38bdf8; --border: #1e293b; }
+    * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+    body { font-family: 'Cairo', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; transition: 0.3s; }
+    nav { position: sticky; top: 0; z-index: 999; background: var(--surface); border-bottom: 1px solid var(--border); padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .brand { font-weight: 900; font-size: 1.1rem; color: var(--navy); text-decoration: none; }
+    .brand span { color: var(--purple); }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 6px; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-weight: 700; font-size: 0.85rem; padding: 6px 12px; border-radius: 8px; transition: 0.2s; }
+    .nav-links a:hover, .nav-links a.active { background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; }
+    .theme-btn { background: var(--alt); border: 1px solid var(--border); color: var(--text); padding: 6px 12px; border-radius: 8px; cursor: pointer; font-family: inherit; font-weight: 700; font-size: 0.8rem; }
+    .page-hero { background: linear-gradient(135deg, #0f2942, #1d4ed8, #7c3aed); color: #fff; padding: 45px 25px; text-align: center; }
+    .badge { display: inline-block; background: rgba(255,255,255,0.18); padding: 5px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 12px; }
+    .page-hero h1 { font-size: 1.9rem; font-weight: 900; margin-bottom: 8px; }
+    .page-hero p { color: #e2e8f0; font-size: 1rem; font-weight: 600; }
+    .container { max-width: 950px; margin: 0 auto; padding: 30px 20px; }
+    .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 18px 22px; margin-bottom: 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+    .toc span { font-weight: 800; color: var(--navy); font-size: 0.95rem; margin-left: 8px; }
+    .toc a { text-decoration: none; background: var(--alt); color: var(--text); padding: 5px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; transition: 0.2s; }
+    .toc a:hover { background: var(--purple); color: #fff; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 28px; margin-bottom: 22px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); }
+    .card h2 { font-size: 1.35rem; color: var(--navy); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid var(--alt); display: flex; align-items: center; gap: 8px; }
+    .q-highlight { background: rgba(124,58,237,0.08); border-right: 4px solid var(--purple); padding: 16px 20px; border-radius: 12px; font-size: 1.05rem; font-weight: 700; color: var(--text); }
+    .card p { color: var(--muted); font-size: 1rem; margin-bottom: 12px; }
+    .examples-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-top: 15px; }
+    .ex-box { background: var(--alt); border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
+    .ex-box h4 { color: var(--blue); font-size: 1rem; margin-bottom: 6px; }
+    .ex-box p { font-size: 0.88rem; margin: 0; }
+    .info-list { padding-right: 18px; color: var(--muted); font-size: 0.95rem; }
+    .info-list li { margin-bottom: 8px; }
+    .ref-list { list-style: none; margin-top: 10px; }
+    .ref-list li { background: var(--alt); padding: 12px 16px; border-radius: 10px; margin-bottom: 8px; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .ref-list a { color: var(--blue); font-weight: 700; text-decoration: none; }
+    .nav-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-top: 25px; }
+    .btn-nav { background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; text-decoration: none; padding: 10px 22px; border-radius: 12px; font-weight: 700; font-size: 0.9rem; }
+    #topBtn { position: fixed; bottom: 20px; left: 20px; width: 42px; height: 42px; border-radius: 50%; background: var(--purple); color: #fff; border: none; font-size: 1.1rem; cursor: pointer; display: none; z-index: 999; }
+    footer { background: #0f2942; color: #e2e8f0; text-align: center; padding: 25px 15px; font-size: 0.9rem; margin-top: 30px; }
+  </style>
 </head>
 <body>
-
-<nav>
+  <nav>
     <a href="index.html" class="brand">منصة أبحاث <span>AI التعليمي</span></a>
     <div class="nav-links">
-        <a href="index.html">الرئيسية</a>
-        <a href="student1.html">الطالب 1</a>
-        <a href="student2.html">الطالب 2</a>
-        <a href="student3.html">الطالب 3</a>
-        <a href="student4.html" class="active">الطالب 4</a>
-        <a href="student5.html">الطالب 5</a>
+      <a href="index.html">الرئيسية</a>
+      <a href="student1.html">الطالب 1</a>
+      <a href="student2.html">الطالب 2</a>
+      <a href="student3.html">الطالب 3</a>
+      <a href="student4.html" class="active">الطالب 4</a>
+      <a href="student5.html">الطالب 5</a>
     </div>
     <button class="theme-btn" id="themeBtn">🌙 ليلي</button>
-</nav>
-
-<header class="page-hero">
-    <div class="badge">البحث الرابع • عضو الفريق</div>
-    <h1>الأخلاقيات وحقوق الملكية في عصر الذكاء الاصطناعي</h1>
-    <p>إعداد الطالب: عبد الرحمن احمد شحاته • الصف الثاني الثانوي (نظام البكالوريا)</p>
-</header>
-
-<div class="container">
-    <div class="toc">
-        <span>📑 محتويات البحث:</span>
-        <a href="#question">السؤال الفرعي</a>
-        <a href="#summary">ملخص البحث</a>
-        <a href="#misinfo">مكافحة التضليل</a>
-        <a href="#ethics">ضوابط الأمانة</a>
-        <a href="#refs">المراجع</a>
-    </div>
-
-    <div class="card" id="question">
-        <h2>❓ السؤال الفرعي للبحث</h2>
-        <div class="q-highlight">
-            السؤال الفرعي 4: ما هي القواعد الأخلاقية لاستخدام الذكاء الاصطناعي بأمانة علمية؟
-        </div>
-    </div>
-
-    <div class="card" id="summary">
-        <h2>📝 ملخص البحث</h2>
-        <p>الأمانة العلمية تعني عدم نسب النصوص أو الأكواد التي ينتجها الذكاء الاصطناعي إلى أنفسنا بشكل كامل دون جهد أو مراجعة. يجب استخدام هذه التقنية لتوليد الأفكار وتنظيمها، مع صياغة البحث بأسلوب الطالب الخاص.</p>
-    </div>
-
-    <div class="card" id="misinfo">
-        <h2>🛡️ مكافحة التضليل</h2>
-        <p>من الضروري عدم استخدام أدوات توليد الصور والصوت في فبركة محتوى يسيء للآخرين أو ينشر أخباراً كاذبة.</p>
-    </div>
-
-    <div class="card" id="ethics">
-        <h2>⚖️ تطبيقات عملية للاستخدام الأخلاقي</h2>
-        <div class="examples-grid">
-            <div class="ex-box">
-                <h4>✍️ الصياغة الشخصية</h4>
-                <p>الاستعانة بالذكاء الاصطناعي في ترتيب الأفكار ثم إعادة كتابة المحتوى بأسلوب الطالب وفهمه.</p>
-            </div>
-            <div class="ex-box">
-                <h4>📌 توثيق المصادر</h4>
-                <p>الإشارة بوضوح إلى المراجع العلمية والكتب المعتمدة وعدم انتحال مجهودات الآخرين.</p>
-            </div>
-            <div class="ex-box">
-                <h4>🚫 احترام الخصوصية</h4>
-                <p>الامتناع عن توليد صور أو مقاطع صوتية مزيفة تضر بسمعة الأفراد أو تضلل المجتمع.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="card" id="refs">
-        <h2>📚 المراجع والمصادر الموثقة</h2>
-        <ul class="ref-list">
-            <li><span>كتاب البرمجة والذكاء الاصطناعي - الصف الثاني الثانوي (وزارة التربية والتعليم المصرية).</span></li>
-            <li>
-                <span>تقرير منظمة اليونسكو: إرشادات الذكاء الاصطناعي التوليدي في التعليم والبحث.</span>
-                <a href="https://unesco.org" target="_blank">زيارة المصدر ↗</a>
-            </li>
-        </ul>
-    </div>
-
-    <div class="nav-bottom">
-        <a href="student3.html" class="btn-nav">→ البحث السابق (الطالب 3)</a>
-        <a href="student5.html" class="btn-nav">البحث التالي (الطالب 5) ←</a>
-    </div>
-</div>
-
-<button id="topBtn" onclick="window.scrollTo(0,0)">↑</button>
-<footer>فريق عمل الصف الثاني بكالوريا - العام الدراسي 2026 / 2027</footer>
-
-<script>
-    const themeBtn = document.getElementById('themeBtn');
-    themeBtn.onclick = () => {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-        themeBtn.textContent = isDark ? '🌙 ليلي' : '☀️ نهاري';
-    };
-    window.onscroll = () => {
-        document.getElementById('topBtn').style.display = window.scrollY > 300 ? 'block' : 'none';
-    };
-</script>
-</body>
-</html>
