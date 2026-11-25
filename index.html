@@ -1,554 +1,267 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl" data-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>منصة أبحاث البرمجة والذكاء الاصطناعي | الصف الثاني الثانوي</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #f8fafc;
-      --surface: #ffffff;
-      --alt: #f1f5f9;
-      --text: #0f172a;
-      --muted: #475569;
-      --navy: #0f2942;
-      --blue: #2563eb;
-      --purple: #7c3aed;
-      --border: #e2e8f0;
-    }
+/* =================================
+   RESPONSIVE DESIGN - ALL DEVICES
+================================= */
 
-    [data-theme="dark"] {
-      --bg: #090d16;
-      --surface: #111827;
-      --alt: #1e293b;
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --navy: #38bdf8;
-      --border: #1e293b;
-    }
+html {
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
+body {
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+}
 
-    body {
-      font-family: 'Cairo', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.75;
-      transition: 0.3s;
-    }
+img, iframe {
+  max-width: 100%;
+}
 
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 12px 20px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-    }
+.container {
+  width: 100%;
+  min-width: 0;
+}
 
-    .brand {
-      font-weight: 900;
-      font-size: 1.1rem;
-      color: var(--navy);
-      text-decoration: none;
-    }
+/* Tablet */
+@media (max-width: 900px) {
+  nav {
+    padding: 12px 16px;
+  }
 
-    .brand span {
-      color: var(--purple);
-    }
+  .nav-links {
+    justify-content: center;
+  }
 
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
+  .grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-weight: 700;
-      font-size: 0.85rem;
-      padding: 6px 12px;
-      border-radius: 8px;
-      transition: 0.2s;
-    }
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 
-    .nav-links a:hover,
-    .nav-links a.active {
-      background: linear-gradient(135deg, var(--blue), var(--purple));
-      color: #fff;
-    }
+/* Mobile */
+@media (max-width: 600px) {
 
-    .theme-btn {
-      background: var(--alt);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 6px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-family: inherit;
-      font-weight: 700;
-      font-size: 0.8rem;
-    }
+  body {
+    font-size: 14px;
+    line-height: 1.8;
+  }
 
-    .hero {
-      background: linear-gradient(135deg, #0f2942, #1d4ed8, #7c3aed);
-      color: #fff;
-      padding: 55px 25px;
-      text-align: center;
-    }
+  nav {
+    position: relative;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
 
-    .badge {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.15);
-      padding: 5px 16px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-    }
+  .brand {
+    text-align: center;
+    font-size: 1.15rem;
+  }
 
-    .hero h1 {
-      font-size: 2rem;
-      font-weight: 900;
-      margin-bottom: 12px;
-    }
+  .nav-links {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 5px;
+    padding: 5px 0;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
 
-    .hero p {
-      max-width: 760px;
-      margin: 0 auto 25px;
-      color: #e2e8f0;
-      font-size: 1rem;
-    }
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
 
-    .hero-btns {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-    }
+  .nav-links a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 12px;
+    padding: 7px 11px;
+  }
 
-    .btn-w {
-      background: #fff;
-      color: #0f2942;
-      padding: 10px 22px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 0.9rem;
-    }
+  .theme-btn {
+    align-self: center;
+    width: 100%;
+    padding: 9px;
+  }
 
-    .btn-t {
-      background: rgba(255, 255, 255, 0.12);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      padding: 10px 22px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
+  .hero {
+    padding: 38px 16px;
+  }
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
+  .badge {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
 
-    .sec-title {
-      text-align: center;
-      margin-bottom: 30px;
-    }
+  .hero h1 {
+    font-size: clamp(21px, 6vw, 28px);
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
 
-    .sec-title h2 {
-      font-size: 1.6rem;
-      color: var(--navy);
-      font-weight: 800;
-    }
+  .hero p {
+    font-size: 13px;
+    line-height: 1.9;
+  }
 
-    .sec-title p {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
+  .hero-btns {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
 
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-    }
+  .btn-w,
+  .btn-t {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 11px;
+  }
 
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 22px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-      transition: 0.3s;
-    }
+  .container {
+    padding: 28px 14px;
+  }
 
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: var(--blue);
-    }
+  .sec-title {
+    margin-bottom: 22px;
+  }
 
-    .card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
+  .sec-title h2 {
+    font-size: 20px;
+    line-height: 1.6;
+  }
 
-    .card p {
-      font-size: 0.92rem;
-      color: var(--muted);
-    }
+  .sec-title p {
+    font-size: 13px;
+  }
 
-    .detail-list {
-      margin-top: 10px;
-      padding-right: 18px;
-      font-size: 0.88rem;
-      color: var(--muted);
-    }
+  .grid-3,
+  .team-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
 
-    .detail-list li {
-      margin-bottom: 5px;
-    }
+  .card,
+  .r-card {
+    padding: 17px;
+    border-radius: 14px;
+    min-width: 0;
+  }
 
-    .search-box {
-      width: 100%;
-      max-width: 550px;
-      display: block;
-      margin: 0 auto 25px;
-      padding: 12px 18px;
-      border-radius: 12px;
-      border: 2px solid var(--border);
-      background: var(--surface);
-      color: var(--text);
-      font-family: inherit;
-      font-size: 0.95rem;
-      outline: none;
-    }
+  .card h3,
+  .r-card h3 {
+    font-size: 16px;
+    line-height: 1.7;
+  }
 
-    .search-box:focus {
-      border-color: var(--purple);
-    }
+  .card p,
+  .r-card p {
+    font-size: 13px;
+    line-height: 1.9;
+  }
 
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
-    }
+  .r-topic {
+    font-size: 13px;
+    line-height: 1.8;
+  }
 
-    .r-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-      transition: 0.3s;
-    }
+  .r-tag {
+    font-size: 11px;
+  }
 
-    .r-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--purple);
-    }
+  .r-btn {
+    padding: 11px;
+    font-size: 13px;
+  }
 
-    .r-tag {
-      display: inline-block;
-      background: rgba(37, 99, 235, 0.1);
-      color: var(--blue);
-      font-size: 0.75rem;
-      font-weight: 800;
-      padding: 3px 10px;
-      border-radius: 12px;
-      margin-bottom: 10px;
-    }
+  .search-box {
+    width: 100%;
+    font-size: 13px;
+    padding: 12px;
+  }
 
-    .r-topic {
-      color: var(--purple);
-      font-weight: 700;
-      font-size: 0.95rem;
-      margin: 6px 0 10px;
-    }
+  .timeline-box,
+  .ref-box {
+    padding: 16px;
+    border-radius: 14px;
+  }
 
-    .r-btn {
-      display: block;
-      text-align: center;
-      background: linear-gradient(135deg, var(--blue), var(--purple));
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      padding: 9px;
-      border-radius: 10px;
-      margin-top: 15px;
-      font-size: 0.9rem;
-    }
+  .timeline-box h2,
+  .ref-box h2 {
+    font-size: 17px !important;
+    line-height: 1.7;
+  }
 
-    .timeline-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 25px;
-      margin-top: 25px;
-    }
+  .phase-item {
+    font-size: 12px;
+    line-height: 1.9;
+    padding: 11px;
+  }
 
-    .phase-item {
-      background: var(--alt);
-      border-right: 4px solid var(--blue);
-      padding: 12px 16px;
-      border-radius: 10px;
-      margin-bottom: 10px;
-      font-size: 0.92rem;
-    }
+  .ref-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 12px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+  }
 
-    .phase-item strong {
-      color: var(--navy);
-    }
+  .ref-list a {
+    white-space: normal;
+  }
 
-    .ref-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 25px;
-      margin-top: 25px;
-    }
+  .highlight {
+    font-size: 13px;
+    padding: 12px;
+  }
 
-    .highlight {
-      background: rgba(124, 58, 237, 0.08);
-      border-right: 4px solid var(--purple);
-      padding: 14px 18px;
-      border-radius: 10px;
-      margin-bottom: 18px;
-      font-size: 0.95rem;
-    }
+  footer {
+    font-size: 12px;
+    line-height: 1.9;
+    padding: 20px 12px;
+  }
 
-    .ref-list {
-      list-style: none;
-    }
+  #topBtn {
+    width: 42px;
+    height: 42px;
+    bottom: 15px;
+    left: 12px;
+  }
+}
 
-    .ref-list li {
-      background: var(--alt);
-      padding: 10px 15px;
-      border-radius: 10px;
-      margin-bottom: 8px;
-      font-size: 0.9rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-    }
+/* Small phones */
+@media (max-width: 380px) {
+  .hero h1 {
+    font-size: 21px;
+  }
 
-    .ref-list a {
-      color: var(--blue);
-      font-weight: 700;
-      text-decoration: none;
-      white-space: nowrap;
-    }
+  .container {
+    padding-right: 11px;
+    padding-left: 11px;
+  }
 
-    #topBtn {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: var(--purple);
-      color: #fff;
-      border: none;
-      font-size: 1.1rem;
-      cursor: pointer;
-      display: none;
-      z-index: 999;
-    }
+  .card,
+  .r-card {
+    padding: 14px;
+  }
 
-    footer {
-      background: #0f2942;
-      color: #e2e8f0;
-      text-align: center;
-      padding: 25px 15px;
-      font-size: 0.9rem;
-      margin-top: 30px;
-    }
-  </style>
-</head>
-<body>
-  <nav>
-    <a href="index.html" class="brand">منصة أبحاث <span>AI التعليمي</span></a>
-    <div class="nav-links">
-      <a href="index.html" class="active">الرئيسية</a>
-      <a href="student1.html">الطالب 1</a>
-      <a href="student2.html">الطالب 2</a>
-      <a href="student3.html">الطالب 3</a>
-      <a href="student4.html">الطالب 4</a>
-      <a href="student5.html">الطالب 5</a>
-    </div>
-    <button class="theme-btn" id="themeBtn">🌙 ليلي</button>
-  </nav>
+  .brand {
+    font-size: 1rem;
+  }
+}
 
-  <header class="hero">
-    <div class="badge">مشروع البحث العلمي • البرمجة والذكاء الاصطناعي • الصف الثاني الثانوي</div>
-    <h1>الذكاء الاصطناعي: التطور، التطبيقات، الأخلاقيات، والتشريعات</h1>
-    <p>منصة بحثية متكاملة تغطي المحاور الخمسة المقررة في البحث العلمي (٣٠٠٠ إلى ٥٠٠٠ كلمة)، وتعرض التحليلات والأدلة والروابط بين صفحات الفريق الخمسة.</p>
-    <div class="hero-btns">
-      <a href="#team" class="btn-w">استعراض محاور الفريق</a>
-      <a href="#goals" class="btn-t">أهداف ومنهجية البحث</a>
-    </div>
-  </header>
-
-  <section class="container" id="goals">
-    <div class="sec-title">
-      <h2>الإطار العام وأهداف البحث العلمي</h2>
-      <p>رؤية موحدة تربط الجانب التقني بالواقع المجتمعي والأخلاقي</p>
-    </div>
-    <div class="grid-3">
-      <div class="card">
-        <h3>🎯 أهداف البحث</h3>
-        <p>تتبع تطور تقنيات الذكاء الاصطناعي وحدود قدراتها، ودراسة تأثيرها الفعلي في القطاعات الحيوية وسوق العمل.</p>
-        <ul class="detail-list">
-          <li>تحليل الفرص والمخاطر في الصحة والتعليم والنقل والصناعة والمال.</li>
-          <li>تقييم قضايا التحيز والخصوصية والشفافية والمسؤولية القانونية.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>💡 أهمية البحث</h3>
-        <p>تساعد هذه الدراسة الطلاب والمجتمع على فهم كيفية التعامل الواعي والمسؤول مع أنظمة الذكاء الاصطناعي.</p>
-        <ul class="detail-list">
-          <li>التمييز بين القدرات الحقيقية للنماذج والقيود التقنية الحالية.</li>
-          <li>دعم اتخاذ القرار وتطوير المهارات المطلوبة للمستقبل.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>🔬 المنهجية والأمانة العلمية</h3>
-        <p>الاعتماد على مصادر متعددة وموثقة مع توثيق كل معلومة وشرح طريقة فهمها وتطبيقها دون نسخ مباشر.</p>
-        <ul class="detail-list">
-          <li>مراجعة دورية عبر ٦ مراحل وجلسات إشرافية.</li>
-          <li>التزام كامل بمعايير التقييم الـ ١٥ للبحث والعرض والموقع.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="container" id="team" style="padding-top: 10px;">
-    <div class="sec-title">
-      <h2>المحاور الخمسة المقررة وصفحات الفريق</h2>
-      <p>ابحث باسم الطالب أو المحور للانتقال إلى الصفحة التفصيلية</p>
-    </div>
-    <input type="text" id="searchInput" class="search-box" placeholder="ابحث عن محور أو طالب (مثال: الصحة، الصناعة، التحيز، التشريعات)...">
-
-    <div class="team-grid">
-      <div class="r-card" data-key="١ تطور تقنيات الذكاء الاصطناعي وحدود قدراتها محمد علي خليل">
-        <div>
-          <span class="r-tag">المحور 01 • student1.html</span>
-          <h3>تطور تقنيات الذكاء الاصطناعي وحدود قدراتها</h3>
-          <div class="r-topic">إعداد / متابعة: محمد علي خليل</div>
-          <p style="font-size:0.88rem; color:var(--muted);">من الأنظمة القاعدية والتعلم الآلي إلى الشبكات العصبية العميقة والنماذج التوليدية، مع مناقشة حدود الفهم والهلوسة والاعتماد على البيانات.</p>
-        </div>
-        <a href="student1.html" class="r-btn">فتح صفحة المحور الأول ←</a>
-      </div>
-
-      <div class="r-card" data-key="٢ أثر الذكاء الاصطناعي في الصحة والتعليم والنقل مازن عبد الراضي عبد الرحيم">
-        <div>
-          <span class="r-tag">المحور 02 • student2.html</span>
-          <h3>أثر الذكاء الاصطناعي في الصحة والتعليم والنقل</h3>
-          <div class="r-topic">إعداد / متابعة: مازن عبد الراضي عبد الرحيم</div>
-          <p style="font-size:0.88rem; color:var(--muted);">دعم التشخيص الطبي وتحليل الصور، وتخصيص المسارات التعليمية للطلاب، وتحسين إدارة المرور وأنظمة القيادة الذكية والسلامة.</p>
-        </div>
-        <a href="student2.html" class="r-btn">فتح صفحة المحور الثاني ←</a>
-      </div>
-
-      <div class="r-card" data-key="٣ الذكاء الاصطناعي في الصناعة والمال والوظائف احمد زين العابدين احمد">
-        <div>
-          <span class="r-tag">المحور 03 • student3.html</span>
-          <h3>الذكاء الاصطناعي في الصناعة والمال والوظائف</h3>
-          <div class="r-topic">إعداد / متابعة: احمد زين العابدين احمد</div>
-          <p style="font-size:0.88rem; color:var(--muted);">الصيانة التنبؤية والأتمتة الصناعية، وتحليل المخاطر واكتشاف الاحتيال المالي، وتأثير ذلك على تحول الوظائف والمهارات المطلوبة.</p>
-        </div>
-        <a href="student3.html" class="r-btn">فتح صفحة المحور الثالث ←</a>
-      </div>
-
-      <div class="r-card" data-key="٤ التحيز والخصوصية والشفافية والمسؤولية عبد الرحمن احمد شحاته">
-        <div>
-          <span class="r-tag">المحور 04 • student4.html</span>
-          <h3>التحيز والخصوصية والشفافية والمسؤولية</h3>
-          <div class="r-topic">إعداد / متابعة: عبد الرحمن احمد شحاته</div>
-          <p style="font-size:0.88rem; color:var(--muted);">رصد التحيز الخوارزمي الناتج عن بيانات التدريب، وحماية خصوصية البيانات، وتوضيح قرارات النماذج (الشفافية)، وتحديد المسؤولية عند الخطأ.</p>
-        </div>
-        <a href="student4.html" class="r-btn">فتح صفحة المحور الرابع ←</a>
-      </div>
-
-      <div class="r-card" data-key="٥ كفاية التشريعات والمبادئ الدولية علي السيد علي">
-        <div>
-          <span class="r-tag">المحور 05 • student5.html</span>
-          <h3>كفاية التشريعات والمبادئ الدولية</h3>
-          <div class="r-topic">إعداد / متابعة: علي السيد علي</div>
-          <p style="font-size:0.88rem; color:var(--muted);">دراسة الأطر التنظيمية والمبادئ الأخلاقية الدولية، وتقييم مدى كفاية القوانين الحالية لمواكبة سرعة تطور الذكاء الاصطناعي وحماية الحقوق.</p>
-        </div>
-        <a href="student5.html" class="r-btn">فتح صفحة المحور الخامس ←</a>
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <h2 style="font-size:1.3rem; color:var(--navy); margin-bottom:14px;">مراحل خطة العمل (نوفمبر ٢٠٢٦ – مارس ٢٠٢٧)</h2>
-      <div class="phase-item"><strong>١. التهيئة وإعداد الخطة (١٥ نوفمبر – ١٠ ديسمبر):</strong> تحديد الأدوار، صياغة خطة البحث، وتجهيز الهيكل المبدئي.</div>
-      <div class="phase-item"><strong>٢. جمع المادة العلمية (١٣ – ٣١ ديسمبر):</strong> تجميع المعلومات من مصادر موثوقة وتدوين المراجع بدقة.</div>
-      <div class="phase-item"><strong>٣. التغذية الراجعة والتطبيق (١ – ١٥ يناير):</strong> مراجعة المحتوى مع المشرف وتطبيق الأفكار في البحث والموقع.</div>
-      <div class="phase-item"><strong>٤. التحليل والنتائج (١٦ يناير – ١٥ فبراير):</strong> استخلاص النتائج والمقارنات وربطها بأهداف البحث.</div>
-      <div class="phase-item"><strong>٥. تجهيز المنتج النهائي (١٦ فبراير – ١٥ مارس):</strong> استكمال البحث (٣٠٠٠–٥٠٠٠ كلمة)، عرض PowerPoint (١٥ شريحة)، والموقع، وتجميع الملف المضغوط.</div>
-      <div class="phase-item"><strong>٦. العرض التقديمي والمناقشة (١٦ – ٣١ مارس):</strong> تقديم العرض وشرح النتائج والإجابة عن أسئلة التقييم.</div>
-    </div>
-
-    <div class="ref-box">
-      <h2 style="font-size:1.3rem; color:var(--navy); margin-bottom:14px;">المصادر المرجعية ومخرجات التسليم</h2>
-      <div class="highlight">
-        <strong>تنبيه الأمانة العلمية:</strong> كل معلومة أو إحصاء في البحث يجب أن يستند إلى مصدر واضح مع صياغة بأسلوب الفريق وفهم كامل لكل جزء لضمان الجاهزية وقت المناقشة.
-      </div>
-      <ul class="ref-list">
-        <li><span>منهج البرمجة والذكاء الاصطناعي – الصف الثاني الثانوي (وزارة التربية والتعليم المصرية).</span></li>
-        <li>
-          <span>تقارير وإرشادات منظمة اليونسكو (UNESCO) حول أخلاقيات والذكاء الاصطناعي.</span>
-          <a href="https://unesco.org" target="_blank">زيارة المصدر ↗</a>
-        </li>
-        <li><span>ملفات التسليم المطلوبة: ملفات المشروعات الفردية الخمسة + البحث المجمع + عرض PowerPoint (١٥ شريحة) + الموقع الإلكتروني داخل ملف مضغوط واحد.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <button id="topBtn" onclick="window.scrollTo(0,0)">↑</button>
-  <footer>فريق عمل الصف الثاني الثانوي • مشروع البرمجة والذكاء الاصطناعي (٢٠٢٦ / ٢٠٢٧)</footer>
-
-  <script>
-    const themeBtn = document.getElementById('themeBtn');
-    themeBtn.onclick = () => {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-      themeBtn.textContent = isDark ? '🌙 ليلي' : '☀️ نهاري';
-    };
-
-    document.getElementById('searchInput').oninput = (e) => {
-      const val = e.target.value.toLowerCase();
-      document.querySelectorAll('.r-card').forEach(c => {
-        c.style.display = c.getAttribute('data-key').toLowerCase().includes(val) ? 'flex' : 'none';
-      });
-    };
-
-    window.onscroll = () => {
-      document.getElementById('topBtn').style.display = window.scrollY > 300 ? 'block' : 'none';
-    };
-  </script>
-</body>
-</html>
+/* Touch devices */
+@media (hover: none) {
+  .card:hover,
+  .r-card:hover {
+    transform: none;
+  }
+}
