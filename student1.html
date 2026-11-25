@@ -1,318 +1,444 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بحث الطالب 1 - تطور تقنيات الذكاء الاصطناعي وحدود قدراتها | محمد علي خليل</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #f8fafc;
-            --surface: #ffffff;
-            --alt: #f1f5f9;
-            --text: #0f172a;
-            --muted: #475569;
-            --navy: #0f2942;
-            --blue: #2563eb;
-            --purple: #7c3aed;
-            --border: #e2e8f0;
-        }
-        [data-theme="dark"] {
-            --bg: #090d16;
-            --surface: #111827;
-            --alt: #1e293b;
-            --text: #f8fafc;
-            --muted: #94a3b8;
-            --navy: #38bdf8;
-            --border: #1e293b;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-        body {
-            font-family: 'Cairo', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.8;
-            transition: 0.3s;
-        }
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            background: var(--surface);
-            border-bottom: 1px solid var(--border);
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .brand {
-            font-weight: 900;
-            font-size: 1.1rem;
-            color: var(--navy);
-            text-decoration: none;
-        }
-        .brand span { color: var(--purple); }
-        .nav-links { display: flex; flex-wrap: wrap; gap: 6px; }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--muted);
-            font-weight: 700;
-            font-size: 0.85rem;
-            padding: 6px 12px;
-            border-radius: 8px;
-            transition: 0.2s;
-        }
-        .nav-links a:hover, .nav-links a.active {
-            background: linear-gradient(135deg, var(--blue), var(--purple));
-            color: #fff;
-        }
-        .theme-btn {
-            background: var(--alt);
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 6px 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.8rem;
-        }
-        .page-hero {
-            background: linear-gradient(135deg, #0f2942, #1d4ed8, #7c3aed);
-            color: #fff;
-            padding: 45px 25px;
-            text-align: center;
-        }
-        .badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.18);
-            padding: 5px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-        .page-hero h1 { font-size: 1.9rem; font-weight: 900; margin-bottom: 8px; }
-        .page-hero p { color: #e2e8f0; font-size: 1rem; font-weight: 600; }
-        .container { max-width: 950px; margin: 0 auto; padding: 30px 20px; }
-        .toc {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 18px 22px;
-            margin-bottom: 24px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-        .toc span { font-weight: 800; color: var(--navy); font-size: 0.95rem; margin-left: 8px; }
-        .toc a {
-            text-decoration: none;
-            background: var(--alt);
-            color: var(--text);
-            padding: 5px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            transition: 0.2s;
-        }
-        .toc a:hover { background: var(--purple); color: #fff; }
-        .card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 28px;
-            margin-bottom: 22px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-        }
-        .card h2 {
-            font-size: 1.35rem;
-            color: var(--navy);
-            margin-bottom: 14px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--alt);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .q-highlight {
-            background: rgba(37,99,235,0.08);
-            border-right: 4px solid var(--blue);
-            padding: 16px 20px;
-            border-radius: 12px;
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--text);
-        }
-        .card p { color: var(--muted); font-size: 1rem; margin-bottom: 12px; }
-        .examples-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 14px;
-            margin-top: 15px;
-        }
-        .ex-box {
-            background: var(--alt);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 16px;
-        }
-        .ex-box h4 { color: var(--purple); font-size: 1rem; margin-bottom: 6px; }
-        .ex-box p { font-size: 0.88rem; margin: 0; }
-        .ref-list { list-style: none; margin-top: 10px; }
-        .ref-list li {
-            background: var(--alt);
-            padding: 12px 16px;
-            border-radius: 10px;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .ref-list a { color: var(--blue); font-weight: 700; text-decoration: none; }
-        .nav-bottom {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 25px;
-        }
-        .btn-nav {
-            background: linear-gradient(135deg, var(--blue), var(--purple));
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 22px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-        #topBtn {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: var(--purple);
-            color: #fff;
-            border: none;
-            font-size: 1.1rem;
-            cursor: pointer;
-            display: none;
-            z-index: 999;
-        }
-        footer {
-            background: #0f2942;
-            color: #e2e8f0;
-            text-align: center;
-            padding: 25px 15px;
-            font-size: 0.9rem;
-            margin-top: 30px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بحث الطالب 2 - أثر الذكاء الاصطناعي في الصحة والتعليم والنقل | مشروع البحث العلمي</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --alt: #f1f5f9;
+      --text: #0f172a;
+      --muted: #475569;
+      --navy: #0f2942;
+      --blue: #2563eb;
+      --purple: #7c3aed;
+      --border: #e2e8f0;
+    }
+
+    [data-theme="dark"] {
+      --bg: #090d16;
+      --surface: #111827;
+      --alt: #1e293b;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --navy: #38bdf8;
+      --border: #1e293b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      transition: 0.3s;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .brand {
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--purple);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      color: #fff;
+    }
+
+    .theme-btn {
+      background: var(--alt);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .page-hero {
+      background: linear-gradient(135deg, #0f2942, #1d4ed8, #7c3aed);
+      color: #fff;
+      padding: 45px 25px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.18);
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .page-hero h1 {
+      font-size: 1.9rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .page-hero p {
+      color: #e2e8f0;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 22px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .toc span {
+      font-weight: 800;
+      color: var(--navy);
+      font-size: 0.95rem;
+      margin-left: 8px;
+    }
+
+    .toc a {
+      text-decoration: none;
+      background: var(--alt);
+      color: var(--text);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .toc a:hover {
+      background: var(--purple);
+      color: #fff;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 22px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    }
+
+    .card h2 {
+      font-size: 1.35rem;
+      color: var(--navy);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--alt);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .q-highlight {
+      background: rgba(37, 99, 235, 0.08);
+      border-right: 4px solid var(--blue);
+      padding: 16px 20px;
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    .examples-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 15px;
+    }
+
+    .ex-box {
+      background: var(--alt);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .ex-box h4 {
+      color: var(--purple);
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .ex-box p {
+      font-size: 0.88rem;
+      margin: 0;
+    }
+
+    .info-list {
+      padding-right: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .info-list li {
+      margin-bottom: 8px;
+    }
+
+    .ref-list {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .ref-list li {
+      background: var(--alt);
+      padding: 12px 16px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .ref-list a {
+      color: var(--blue);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .btn-nav {
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    #topBtn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--purple);
+      color: #fff;
+      border: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: none;
+      z-index: 999;
+    }
+
+    footer {
+      background: #0f2942;
+      color: #e2e8f0;
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 0.9rem;
+      margin-top: 30px;
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="brand">منصة أبحاث <span>AI التعليمي</span></a>
-        <div class="nav-links">
-            <a href="index.html">الرئيسية</a>
-            <a href="student1.html" class="active">الطالب 1</a>
-            <a href="student2.html">الطالب 2</a>
-            <a href="student3.html">الطالب 3</a>
-            <a href="student4.html">الطالب 4</a>
-            <a href="student5.html">الطالب 5</a>
-        </div>
-        <button class="theme-btn" id="themeBtn">🌙 ليلي</button>
-    </nav>
+  <nav>
+    <a href="index.html" class="brand">منصة أبحاث <span>AI التعليمي</span></a>
+    <div class="nav-links">
+      <a href="index.html">الرئيسية</a>
+      <a href="student1.html">الطالب 1</a>
+      <a href="student2.html" class="active">الطالب 2</a>
+      <a href="student3.html">الطالب 3</a>
+      <a href="student4.html">الطالب 4</a>
+      <a href="student5.html">الطالب 5</a>
+    </div>
+    <button class="theme-btn" id="themeBtn">🌙 ليلي</button>
+  </nav>
 
-    <header class="page-hero">
-        <div class="badge">البحث الأول • قائد الفريق</div>
-        <h1>تطور تقنيات الذكاء الاصطناعي وحدود قدراتها</h1>
-        <p>إعداد الطالب: محمد علي خليل • الصف الثاني الثانوي (نظام البكالوريا)</p>
-    </header>
+  <header class="page-hero">
+    <div class="badge">البحث الثاني • فريق العمل</div>
+    <h1>أثر الذكاء الاصطناعي في الصحة والتعليم والنقل</h1>
+    <p>إعداد الطالب: مازن عبد الراضي عبد الرحيم • الصف الثاني الثانوي (نظام البكالوريا)</p>
+  </header>
 
-    <div class="container">
-        <div class="toc">
-            <span>📑 محتويات البحث:</span>
-            <a href="#question">السؤال البحثي</a>
-            <a href="#evolution">مراحل التطور</a>
-            <a href="#limits">حدود القدرات</a>
-            <a href="#examples">أمثلة ومقارنات</a>
-            <a href="#refs">المراجع</a>
-        </div>
-
-        <div class="card" id="question">
-            <h2>❓ السؤال البحثي والأهمية</h2>
-            <div class="q-highlight">
-                كيف تطورت تقنيات الذكاء الاصطناعي من الأنظمة القائمة على القواعد إلى النماذج التوليدية، وما هي حدود قدراتها الحالية؟
-            </div>
-            <p style="margin-top: 12px;">يهدف هذا المحور إلى فهم الأسس التاريخية والتقنية للذكاء الاصطناعي وتمييز قدراته الحقيقية من المبالغات التسويقية، لتحديد المجالات التي يبدع فيها وتلك التي تتطلب تدخلاً بشرياً.</p>
-        </div>
-
-        <div class="card" id="evolution">
-            <h2>📈 تطور تقنيات الذكاء الاصطناعي</h2>
-            <p>بدأ الذكاء الاصطناعي بالأنظمة الخبيرة والقواعد المنطقية الثابتة، ثم انتقل إلى تعلم الآلة (Machine Learning) الذي يكتشف الأنماط من البيانات، وصولاً إلى الشبكات العصبية العميقة والنماذج التوليدية متعددة الوسائط.</p>
-            <p>ساهم توفر البيانات الضخمة والقدرات الحوسبية العالية في تسريع قدرة النماذج على فهم اللغة والصور والصوت وتوليد مخرجات مترابطة.</p>
-        </div>
-
-        <div class="card" id="limits">
-            <h2>⚠️ حدود قدرات الذكاء الاصطناعي</h2>
-            <p>رغم التطور الكبير، لا يمتلك الذكاء الاصطناعي الحالي وعياً ذاتياً أو فهماً حقيقياً للعالم المادي مثل البشر، ويعاني من مشكلات مثل الهلوسة المعلوماتية (توليد معلومات غير دقيقة بثقة)، والاعتماد على جودة بيانات التدريب، واستهلاك الطاقة العالي.</p>
-        </div>
-
-        <div class="card" id="examples">
-            <h2>💡 أبرز المحطات والحدود العملية</h2>
-            <div class="examples-grid">
-                <div class="ex-box">
-                    <h4>🧠 الأنظمة الرمزية وتعلم الآلة</h4>
-                    <p>الانتقال من قواعد (إذا - فإن) الصارمة إلى نماذج تتعلم إحصائياً من الأمثلة والبيانات التاريخية.</p>
-                </div>
-                <div class="ex-box">
-                    <h4>✨ النماذج التوليدية</h4>
-                    <p>إنتاج نصوص وأكواد وصور ومقاطع بناءً على احتمالات الأنماط اللغوية والبصرية المتعلمة.</p>
-                </div>
-                <div class="ex-box">
-                    <h4>🚧 الفجوة الإدراكية</h4>
-                    <p>صعوبة الاستدلال السببي العميق والتعامل مع المواقف الاستثنائية الجديدة كلياً دون سوابق واضحة.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" id="refs">
-            <h2>📚 المراجع والمصادر الموثقة</h2>
-            <ul class="ref-list">
-                <li><span>كتاب البرمجة والذكاء الاصطناعي - الصف الثاني الثانوي (وزارة التربية والتعليم المصرية).</span></li>
-                <li><span>موسوعة ستانفورد للفلسفة (Stanford Encyclopedia of Philosophy) — مدخل الذكاء الاصطناعي وحدوده.</span> <a href="https://plato.stanford.edu" target="_blank">زيارة المصدر ↗</a></li>
-            </ul>
-        </div>
-
-        <div class="nav-bottom">
-            <a href="index.html" class="btn-nav">→ العودة للرئيسية</a>
-            <a href="student2.html" class="btn-nav">البحث التالي (الطالب 2) ←</a>
-        </div>
+  <div class="container">
+    <div class="toc">
+      <span>📑 محتويات البحث:</span>
+      <a href="#question">السؤال البحثي</a>
+      <a href="#health">الصحة</a>
+      <a href="#education">التعليم</a>
+      <a href="#transport">النقل</a>
+      <a href="#challenges">التحديات والضوابط</a>
+      <a href="#refs">المراجع</a>
     </div>
 
-    <button id="topBtn" onclick="window.scrollTo(0,0)">↑</button>
+    <div class="card" id="question">
+      <h2>❓ السؤال البحثي والأهمية</h2>
+      <div class="q-highlight">
+        كيف يُحدث الذكاء الاصطناعي تحولاً عملياً في قطاعات الصحة والتعليم والنقل، وما هي الفرص والمخاطر المرتبطة بتطبيقه في كل قطاع؟
+      </div>
+      <p style="margin-top: 12px;">
+        تُعد الصحة والتعليم والنقل من أكثر القطاعات تماساً مع حياة الناس اليومية؛ وفهم دور الذكاء الاصطناعي فيها يوضح كيف يمكن تحسين جودة الخدمات وسرعة الاستجابة مع الحفاظ على السلامة والرقابة البشرية.
+      </p>
+    </div>
 
-    <footer>فريق عمل الصف الثاني بكالوريا - العام الدراسي 2026 / 2027</footer>
+    <div class="card" id="health">
+      <h2>🏥 أثر الذكاء الاصطناعي في قطاع الصحة</h2>
+      <p>
+        تعتمد الرعاية الصحية الحديثة على كميات هائلة من الأشعة والتحاليل والسجلات المرضية، وتساعد الخوارزميات على اكتشاف الأنماط الدقيقة التي قد تستغرق وقتاً أطول أو يصعب رصدها مبكراً.
+      </p>
+      <ul class="info-list">
+        <li><strong>التشخيص المبكر وتحليل الصور:</strong> دعم الأطباء في قراءة صور الأشعة والمسح الطبي لاكتشاف المؤشرات المبكرة للأمراض.</li>
+        <li><strong>الطب التنبؤي وإدارة المستشفيات:</strong> تقدير احتمالات تدهور الحالات وتوزيع الموارد والأسرة والمواعيد بكفاءة.</li>
+        <li><strong>اكتشاف الأدوية والبحث الطبي:</strong> تسريع فحص المركبات الكيميائية وتحليل البيانات الحيوية لتقليل زمن التجارب الأولية.</li>
+      </ul>
+    </div>
 
-    <script>
-        const themeBtn = document.getElementById('themeBtn');
-        themeBtn.onclick = () => {
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-            themeBtn.textContent = isDark ? '🌙 ليلي' : '☀️ نهاري';
-        };
-        window.onscroll = () => {
-            document.getElementById('topBtn').style.display = window.scrollY > 300 ? 'block' : 'none';
-        };
-    </script>
+    <div class="card" id="education">
+      <h2>🎓 أثر الذكاء الاصطناعي في قطاع التعليم</h2>
+      <p>
+        ينتقل التعليم تدريجياً من النموذج الموحّد للجميع إلى التعلّم التكيفي الذي يراعي الفروق الفردية بين الطلاب.
+      </p>
+      <ul class="info-list">
+        <li><strong>تخصيص مسارات التعلّم:</strong> تقديم شروحات وتدريبات تناسب مستوى كل طالب وسرعة استيعابه ونقاط الضعف لديه.</li>
+        <li><strong>مساعدة المعلم والباحث:</strong> توليد أسئلة متنوعة، تلخيص المراجع، وتحليل نسب تحصيل الطلاب لاكتشاف فجوات الفهم مبكراً.</li>
+        <li><strong>تيسير الوصول وتعدد اللغات:</strong> دعم الترجمة الفورية وأدوات القراءة والصوت لخدمة شرائح أوسع من المتعلمين.</li>
+      </ul>
+    </div>
+
+    <div class="card" id="transport">
+      <h2>🚦 أثر الذكاء الاصطناعي في قطاع النقل</h2>
+      <p>
+        تستخدم أنظمة النقل الذكية البيانات اللحظية من الكاميرات والمستشعرات والمركبات لتحسين انسيابية الحركة وتقليل الاختناقات المرورية.
+      </p>
+      <ul class="info-list">
+        <li><strong>إدارة المرور وتوجيه المسارات:</strong> تحليل الكثافات لحظياً واقتراح بدائل مرورية تقلل زمن التنقل واستهلاك الوقود.</li>
+        <li><strong>أنظمة السلامة ومساعدة القيادة:</strong> تنبيه السائق بالمسار، الكبح التلقائي في الطوارئ، ومراقبة النقاط العمياء.</li>
+        <li><strong>النقل العام والصيانة التنبؤية:</strong> تحسين مواعيد الرحلات وتوقع أعطال المركبات والقطارات قبل حدوثها.</li>
+      </ul>
+    </div>
+
+    <div class="card" id="challenges">
+      <h2>⚠️ أبرز التحديات والضوابط في القطاعات الثلاثة</h2>
+      <div class="examples-grid">
+        <div class="ex-box">
+          <h4>🩺 في الصحة</h4>
+          <p>حماية خصوصية بيانات المرضى، وضمان بقاء القرار الطبي النهائي في يد الطبيب المختص.</p>
+        </div>
+        <div class="ex-box">
+          <h4>📖 في التعليم</h4>
+          <p>تجنب الاعتماد الأعمى على الإجابات الجاهزة والحفاظ على التفكير النقدي والفهم الحقيقي.</p>
+        </div>
+        <div class="ex-box">
+          <h4>🛣️ في النقل</h4>
+          <p>مواجهة تحديات الطقس والظروف غير المتوقعة وتأمين الأنظمة ضد الاختراق السيبراني.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="refs">
+      <h2>📚 المراجع والمصادر الموثقة</h2>
+      <ul class="ref-list">
+        <li><span>كتاب البرمجة والذكاء الاصطناعي - الصف الثاني الثانوي (وزارة التربية والتعليم المصرية).</span></li>
+        <li>
+          <span>منظمة الصحة العالمية (WHO) — الذكاء الاصطناعي في الصحة والضوابط الأخلاقية.</span>
+          <a href="https://www.who.int" target="_blank">زيارة المصدر ↗</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="nav-bottom">
+      <a href="student1.html" class="btn-nav">→ البحث السابق (الطالب 1)</a>
+      <a href="student3.html" class="btn-nav">البحث التالي (الطالب 3) ←</a>
+    </div>
+  </div>
+
+  <button id="topBtn" onclick="window.scrollTo(0,0)">↑</button>
+  <footer>فريق عمل الصف الثاني بكالوريا - العام الدراسي 2026 / 2027</footer>
+
+  <script>
+    const themeBtn = document.getElementById('themeBtn');
+    themeBtn.onclick = () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      themeBtn.textContent = isDark ? '🌙 ليلي' : '☀️ نهاري';
+    };
+    window.onscroll = () => {
+      document.getElementById('topBtn').style.display = window.scrollY > 300 ? 'block' : 'none';
+    };
+  </script>
 </body>
 </html>
